@@ -1,8 +1,11 @@
+package filetransfer;
+
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
+import java.io.IOException;
 
 public class FileTransfer {
 
@@ -36,8 +39,14 @@ public class FileTransfer {
 			}
 			br.close();
 			writer.close();
-		} catch (Exception e) {
+		}catch (IOException e) {
+			System.out.println("File "+location+" could not be found.");
 			e.printStackTrace();
-	  	}
-  	}
+		}
 	}
+
+	public static void main(String[] args){
+		FileTransfer f2 = new FileTransfer("test.txt", "C:/Users/Cory/Desktop/img/test.txt", "C:/Users/Cory/Desktop/pics");
+		f2.move();//writing, not returning tho
+	}
+}
