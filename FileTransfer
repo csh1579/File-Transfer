@@ -1,0 +1,43 @@
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileReader;
+import java.io.FileWriter;
+
+public class FileTransfer {
+
+	String filename;//name of text file to copy
+	String location;
+	String destination;//destination path of where to copy it to
+
+	public FileTransfer(String filename, String location, String destination){
+		this.filename = filename;
+		this.location = location;
+		this.destination = destination;
+	}
+
+	public void move(){
+		try {
+			String fileName = "test.txt";
+			FileReader fr = new FileReader(location);
+			BufferedReader br = new BufferedReader(fr);
+			String line = br.readLine();
+			
+			
+			//allows us to write to the new file
+			File dir = new File (destination);
+			File actualFile = new File (dir, fileName);
+			BufferedWriter writer = new BufferedWriter(new FileWriter(actualFile));
+			
+			while (line != null){
+				writer.write(line);
+				writer.newLine();
+				line = br.readLine();
+			}
+			br.close();
+			writer.close();
+		} catch (Exception e) {
+			e.printStackTrace();
+	  	}
+  	}
+	}
