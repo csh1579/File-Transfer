@@ -44,9 +44,4 @@ public class FileTransfer {
 			e.printStackTrace();
 		}
 	}
-
-	public static void main(String[] args){
-		FileTransfer f2 = new FileTransfer("test.txt", "C:/Users/Cory/Desktop/img/test.txt", "C:/Users/Cory/Desktop/pics");
-		f2.move();//writing, not returning tho
-	}
 }
